@@ -7,14 +7,17 @@ import {getDeleteItemAction} from "./store/actionCreators"
 class HomePage extends Component{
     constructor(props){
         super(props);
-        this.state=store.getState();
+        // this.state=store.getState();
+        this.handleStoreChange=this.handleStoreChange.bind(this);//把数据提交给store
+        store.subscribe(this.handleStoreChange);   //store发生变化时，执行该函数
     }
     componentDidMount(){
         console.log(this.props)
     }
 
     getTodoItem(){
-        return (this.state.list.map((item,index)=>{
+        const state = store.getState();
+        return (state.list.map((item,index)=>{
             return (
                 <li key={index} 
                 onClick={this.handleItemDelete.bind(this,index)}
@@ -44,6 +47,9 @@ class HomePage extends Component{
                 </ul>
             </Fragment>
         )
+    }
+    handleStoreChange(){
+        this.setState(store.getState());
     }
 }
 

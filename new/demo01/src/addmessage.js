@@ -5,7 +5,7 @@ import {getAddmessageAction,getInputNameAction,getInputGenderAction,getInputAgeA
 class Addmessage extends Component{
     constructor(props){
         super(props);
-        this.state=store.getState()//获取store数据
+        //this.state=store.getState()//获取store数据 
         this.handleAddmessage=this.handleAddmessage.bind(this);//确认添加信息
         this.handleInputNameChange=this.handleInputNameChange.bind(this);
         this.handleInputGenderChange=this.handleInputGenderChange.bind(this);
@@ -16,6 +16,7 @@ class Addmessage extends Component{
         store.subscribe(this.handleStoreChange);   //store发生变化时，执行该函数
     }
     render(){
+        const state = store.getState();
         return(
             <Fragment>
                 <div>
@@ -26,7 +27,7 @@ class Addmessage extends Component{
                     <input
                         placeholder="姓名"
                         onChange={this.handleInputNameChange}
-                        value={this.state.inputNameValue}
+                        value={state.inputNameValue}
                     />
                 </div>
                 <div>
@@ -34,7 +35,7 @@ class Addmessage extends Component{
                     <input
                         placeholder="性别"
                         onChange={this.handleInputGenderChange}
-                        value={this.state.inputGenderValue}
+                        value={state.inputGenderValue}
                     />
                 </div>
                 <div>
@@ -42,7 +43,7 @@ class Addmessage extends Component{
                     <input
                         placeholder="年龄"
                         onChange={this.handleInputAgeChange}
-                        value={this.state.inputAgeValue}
+                        value={state.inputAgeValue}
                     />
                 </div>
                 <div>
@@ -50,7 +51,7 @@ class Addmessage extends Component{
                     <input
                         placeholder="爱好"
                         onChange={this.handleInputHobbyChange}
-                        value={this.state.inputHobbyValue}
+                        value={state.inputHobbyValue}
                     />
                 </div>
                 <button onClick={this.handleAddmessage}>确认添加</button>

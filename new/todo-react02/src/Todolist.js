@@ -1,66 +1,72 @@
 import React, { Component,Fragment } from 'react';
-import 'antd/dist/antd.css';
-import { Input ,Button ,List} from 'antd';
-import store from "./store";    //引入store
-import {getInputChangeAction,getAddItemAction,getDeleteItemAction} from "./store/actionCreators"
+import TodoItem from "./Todoitem";
+import "./style.css";
 
 class Todolist extends Component {
-
   constructor(props){
     super(props);
-    this.state=store.getState()
-    // console.log(this.state);
+    //当组件的state或者props发生改变的时候，render函数就会执行
+    this.state={
+      inputValue:"",
+      list:["3","5","1"]
+    };
     this.handleInputChange=this.handleInputChange.bind(this);
-    this.handleStoreChange=this.handleStoreChange.bind(this);
-    this.handleBtnClick=this.handleBtnClick.bind(this);
-    store.subscribe(this.handleStoreChange);   //store发生变化时，执行该函数
-  }
-  
-  render(){
-    return (
-      <Fragment>
-        <div style={{marginTop:10,marginLeft:10}}>
-        <Input
-          onChange={this.handleInputChange}
-          value={this.state.inputValue}
-          placeholder="hello"
-          style={{width:300,marginRight:10}}
-        />
-        <Button
-          onClick={this.handleBtnClick}
-          type="primary">按钮</Button>
-        <List
-          style={{marginTop:10,width:300}}
-          bordered
-          dataSource={this.state.list}
-          // dataSource={[]}
-          renderItem={(item,index) => (
-            <List.Item onClick={this.handleItemDelete.bind(this,index)}>
-              {item}
-            </List.Item>
-          )}
-        />
-        </div>
-        
-      </Fragment>
-    )
+    this.handelBtnClick=this.handelBtnClick.bind(this);
+    this.handleItemDelete=this.handleItemDelete.bind(this)
   }
   handleInputChange(e){
-    const action=getInputChangeAction(e.target.value);
-    store.dispatch(action);
+    const value =e.target.value;    //不这步会报错，异步操作
+    this.setState(()=>({
+        inputValue:value
+    }))
   }
-  handleStoreChange(){
-    this.setState(store.getState());
-    // console.log("StoreChange");
+  //新增li标签
+  handelBtnClick(){
+    this.setState((prevState)=>({
+      list:[...prevState.list,prevState.inputValue],
+      inputValue:""
+    }))
   }
-  handleBtnClick(){
-    const action=getAddItemAction()
-    store.dispatch(action)
-  }
+  //删除li标签
   handleItemDelete(index){
-    const action=getDeleteItemAction(index)
-    store.dispatch(action);
-    // console.log(index)
+    this.setState((prevState)=>{
+      const list=[...prevState.list]
+      list.splice(index,1)
+      return {list }
+    })
+  }
+  
+  render() {
+    //页面由render函数渲染出来
+    // console.log("render")
+    return (
+      <Fragment>
+        <div>
+          <input className="input" value={this.state.inputValue} onChange={this.handleInputChange}/>
+          <button onClick={this.handelBtnClick}>提交</button>
+        </div>
+        <ul>
+          {/* {this.state.list.map((item,index)=>{
+            return (
+              <div>
+                <TodoItem content={item} index={index} DeleteItem={this.handleItemDelete}/>
+              </div>
+            )
+          })} */}
+          {this.getTodoItem()}
+        </ul>
+      </Fragment>
+    );
+  }
+  
+  getTodoItem(){
+    return (
+      this.state.list.map((item,index)=>{
+        return (
+            <TodoItem key={index} content={item} index={index} DeleteItem={this.handleItemDelete}/>
+        )
+      })
+    )
   }
 }
 
