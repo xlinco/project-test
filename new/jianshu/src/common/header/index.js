@@ -17,8 +17,8 @@ class Header extends Component{
                         <input className={header.navSearch} placeholder="搜索"/> 
                     </div>
                     <div className={header.addition}>
-                        <button className={header.btn}>注册</button>
-                        <button className={header.btn}>写文章</button>
+                        <button className={header.btn+" "+header.writting}>写文章</button>
+                        <button className={header.btn+" "+header.reg}>注册</button>
                     </div>
                 </div>
 

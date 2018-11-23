@@ -16,6 +16,8 @@
 .nav{
     width: 960px;
     height: 100%;
+    padding-right: 50px;
+    box-sizing: border-box;
     margin: 0 auto;
 }
 .navItem{
@@ -59,9 +61,17 @@
 .btn{
     float: right;
     margin-top: 9px;
-    margin-right: 28px;
+    margin-right: 20px;
     padding: 0 20px;
     line-height: 38px;
     border-radius: 19px;
+    font-size: 14px;
     border: 1px solid #ec6109;
+}
+.reg{
+    color:#ea6f5a;
+}
+.writting{
+    color: #fff;
+    background: #ea6f5a;
 }
