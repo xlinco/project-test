@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import './style.js';
+import "./reset.css";     //全局样式
 
 ReactDOM.render(<App />, document.getElementById('root'));
