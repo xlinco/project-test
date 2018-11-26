@@ -1,8 +1,10 @@
 import React,{Component} from "react";
+import writer from "./writer.css";
+
 class Writer extends Component{
     render(){
         return (
-            <div>Writer</div>
+            <div className={writer.writerWrapper}>Writer</div>
         )
     }
 }

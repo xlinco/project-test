@@ -1,18 +1,53 @@
 import {fromJS} from "immutable";
 
 const defaultState =fromJS({
-    topicList:[{
-        id:1,
-        title:"社会热点",
-        imgUrl:"//upload-images.jianshu.io/upload_images/8635253-071e138c2cbfbcbc?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240"
-    },{
-        id:2,
-        title:"手绘",
-        imgUrl:"//upload-images.jianshu.io/upload_images/8635253-071e138c2cbfbcbc?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240"
-    }]
+    topicList:[],
+    articleList:[],
+    recommendList:[]
+    // topicList:[{
+    //     id:1,
+    //     title:"社会热点",
+    //     imgUrl:"//upload-images.jianshu.io/upload_images/8635253-071e138c2cbfbcbc?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240"
+    // },{
+    //     id:2,
+    //     title:"手绘",
+    //     imgUrl:"//upload-images.jianshu.io/upload_images/8635253-071e138c2cbfbcbc?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240"
+    // }],
+    // articleList:[{
+    //     id:1,
+    //     title:"换季了，又该买买买了",
+    //     desc:"秋风渐起，天气转凉，衣柜也要换季大清理了，很多衣服当初买回来时欢天喜地，现在却再也找不到心动的感觉，需要果干的来个断舍离。 每天出门时，望着堆积...",
+    //     imgUrl:"//upload-images.jianshu.io/upload_images/12885000-fa6bed078efe35cf.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240"
+    // },{
+    //     id:2,
+    //     title:"换季了，又该买买买了",
+    //     desc:"秋风渐起，天气转凉，衣柜也要换季大清理了，很多衣服当初买回来时欢天喜地，现在却再也找不到心动的感觉，需要果干的来个断舍离。 每天出门时，望着堆积...",
+    //     imgUrl:"//upload-images.jianshu.io/upload_images/12885000-fa6bed078efe35cf.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240"
+    // },{
+    //     id:3,
+    //     title:"换季了，又该买买买了",
+    //     desc:"秋风渐起，天气转凉，衣柜也要换季大清理了，很多衣服当初买回来时欢天喜地，现在却再也找不到心动的感觉，需要果干的来个断舍离。 每天出门时，望着堆积...",
+    //     imgUrl:"//upload-images.jianshu.io/upload_images/12885000-fa6bed078efe35cf.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240"
+    // },{
+    //     id:4,
+    //     title:"换季了，又该买买买了",
+    //     desc:"秋风渐起，天气转凉，衣柜也要换季大清理了，很多衣服当初买回来时欢天喜地，现在却再也找不到心动的感觉，需要果干的来个断舍离。 每天出门时，望着堆积...",
+    //     imgUrl:"//upload-images.jianshu.io/upload_images/12885000-fa6bed078efe35cf.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240"
+    // }],
+    // recommendList:[{
+    //     id:1,
+    //     imgUrl:"http://cdn2.jianshu.io/assets/web/banner-s-5-4ba25cf5041931a0ed2062828b4064cb.png"
+    // },{
+    //     id:2,
+    //     imgUrl:"http://cdn2.jianshu.io/assets/web/banner-s-5-4ba25cf5041931a0ed2062828b4064cb.png"
+    // },{
+    //     id:3,
+    //     imgUrl:"http://cdn2.jianshu.io/assets/web/banner-s-5-4ba25cf5041931a0ed2062828b4064cb.png"
+    // }]
 });
 export default (state=defaultState,action) => {
     switch(action.type){
+        case "change_home_data":state.set("topicList",action.topicList);
         default:return state;
     }
 }
