@@ -1,0 +1,27 @@
+.listItem{
+    padding: 20px 0;
+    border-bottom: 1px solid #dcdcdc;
+    overflow: hidden;
+}
+.listInfo{
+    width: 500px;
+    float: right;
+}
+.listPic{
+    width: 125px;
+    height: 100px;
+    display: block;
+    float: right;
+    border-radius: 10px;
+}
+.listTitle{
+    font-size: 18px;
+    line-height: 27px;
+    font-weight: bold;
+    color: #333;
+}
+.listDesc{
+    font-size: 14px;
+    line-height: 18px;
+    color:#999;
+}
