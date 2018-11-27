@@ -1,0 +1,27 @@
+.topicWrapper{
+    padding:20px 0 10px 0;
+    margin-left: -18px;
+    border-bottom: 1px solid #dcdcdc;
+    overflow: hidden;
+}
+.topicItem{
+    float: left;
+    font-size: 14px;
+    color:#000;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    height: 32px;
+    line-height: 32px;
+    background: #f7f7f7;
+    padding-right: 10px;
+    margin-left: 18px;
+    margin-top: 18px;
+    /* margin: 18px 10px 0 18px; */
+}
+.topicPic{
+    width: 32px;
+    height: 32px;
+    display: block;
+    float: left;
+    margin-right: 10px;
+}

@@ -1,0 +1,19 @@
+.homeWrapper{
+    width: 960px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.homeLeft{
+    width: 625px;
+    margin-left: 15px;
+    padding-top: 30px;
+    float: left;
+}
+.homeRight{
+    width: 280px;
+    float: right;
+}
+.bannerImg{
+    width: 625px;
+    height: 270px;
+}
